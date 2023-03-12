@@ -15,9 +15,11 @@ const login = async (req,res)=>{
 }
 
 const dashboard = async (req,res)=>{
-    console.log(req.headers);
+    console.log(req.user);
     const luckyNumber = Math.floor(Math.random()*100)
-    res.status(200).json({msg:`Hello, Dennis`,secret:`Here is your authorized data ${luckyNumber}`});
+    res.status(200).json({msg:`Hello, ${req.user.username}`,secret:`Here is your authorized data ${luckyNumber}`});
 }
 
-module.exports = {login,dashboard}  
+module.exports = {login,dashboard}
+
+//6:12
